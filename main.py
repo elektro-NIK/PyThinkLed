@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from time import sleep
+from sys import argv
 
 ledctrl = '/proc/acpi/ibm/led'
 diskstat = '/proc/diskstats'
@@ -22,12 +24,18 @@ def disk_stat(dev):
         if dev in i:
             return int(i.split()[11])  # I/Os currently in progress
 
+
 def disk_led(dev):
-    while(True):
-        if main.disk_stat('sda'):
-            main.set_led('off')
-            time.sleep(0.08)
-            main.set_led('on')
-            time.sleep(0.02)
-       else:
-            time.sleep(0.1)
+    while True:
+        if disk_stat(dev):
+            set_led('off')
+            sleep(0.08)
+            set_led('on')
+            sleep(0.02)
+        else:
+            sleep(0.1)
+
+if argv[1] == '--hdd':
+    disk_led(argv[2])
+else:
+    print('Error! Please see README.md.')
