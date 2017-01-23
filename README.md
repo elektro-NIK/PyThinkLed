@@ -8,7 +8,7 @@ Arguments:
 -  `--hdd HDD`    : use hdd indicator
 -  `--hddlist`    : list of possible HDD
 
-Future opportunities:
+Future features:
 - Network indicator
 - CapsLock indicator
 - Wi-Fi status
