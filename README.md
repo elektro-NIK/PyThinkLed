@@ -13,3 +13,4 @@ Future features:
 - CapsLock indicator
 - Wi-Fi status
 - New message indicator
+- Low battery alert
